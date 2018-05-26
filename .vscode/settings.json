@@ -1,0 +1,3 @@
+{
+    "python.pythonPath": "${workspaceFolder}/travel-notifications/bin/python"
+}

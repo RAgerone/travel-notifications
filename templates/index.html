@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Travelify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/main.css" />
+    <script src="/static/main.js"></script>
+</head>
+
+<body>
+    <h1>International Flights from Seattle</h1>
+    <form action="/slack" method="get">
+        <h3>Share the top
+            <input type="text" id="num-to-share" placeholder="5"></input>
+        </h3>
+    </form>
+    <ul>
+        {% for flight in flights %}
+        <li>
+            <a href="https://www.airfarewatchdog.com/{{flight.url}}">${{ flight.cost }} - {{ flight.destination}}. for {{ flight.num_days() }} days in {{ flight.month() }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

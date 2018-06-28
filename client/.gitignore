@@ -1,12 +1,3 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-*.log
-# Dependencies
-travel-notifications/*
-list/*
-# Vue
 .DS_Store
 node_modules
 /dist
@@ -28,5 +19,3 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
-data.csv
-index.html

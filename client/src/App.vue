@@ -1,19 +1,22 @@
 <template>
   <div id="app">
+    <Graph />
     <PostToSlack />
     <List />
   </div>
 </template>
 
 <script>
+import Graph from './components/FlightsGraph.vue'
 import List from './components/FlightList.vue'
 import PostToSlack from './components/PostToSlack.vue'
 
 export default {
   name: 'app',
   components: {
+    Graph,
     List,
-    PostToSlack
+    PostToSlack,
   }
 }
 </script>

@@ -9,7 +9,7 @@ def run_backgrounder():
     scheduler.start()
     scheduler.add_job(
         func=get_flights,
-        trigger=IntervalTrigger(hours=1),
+        trigger=IntervalTrigger(minutes=1),
         id='getting_flights',
         name='Scrape flights and place them into the database'
     )

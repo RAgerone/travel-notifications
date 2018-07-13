@@ -57,6 +57,9 @@ class Flight(TimestampMixin, PersistableMixin, db.Model):
     def month(self):
         return self.beginning.strftime("%B")
 
+    def chart_timestamp(self):
+        return self.created.strftime("%Y-%m-%d %H:%M:%S ") + "-0800"
+
 
 class Destination(TimestampMixin, PersistableMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -71,6 +74,14 @@ class Destination(TimestampMixin, PersistableMixin, db.Model):
     @classmethod
     def find(cls, d):
         return cls.query.filter(cls.city == d['city']).one_or_none()
+
+    def flights_to_chart_data(self):
+        data = {
+            'name': self.code,
+            'data': {f.chart_timestamp(): f.cost for f in self.flights}
+        }
+
+        return data
 
 
 def flights_backup_to_csv():

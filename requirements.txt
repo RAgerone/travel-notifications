@@ -19,9 +19,10 @@ curtsies==0.3.0
 cycler==0.10.0
 Django==2.0
 docutils==0.14
-Flask==1.0.2
+Flask==0.12.4
 Flask-Cors==3.0.6
 Flask-Migrate==2.2.1
+flask-shell-bpython==1.0.0
 Flask-SQLAlchemy==2.3.2
 gast==0.2.0
 greenlet==0.4.13
@@ -42,6 +43,7 @@ mccabe==0.6.1
 numpy==1.14.1
 pbr==3.1.1
 protobuf==3.5.2
+psycopg2==2.7.5
 pyasn1==0.4.2
 pycodestyle==2.4.0
 Pygments==2.2.0

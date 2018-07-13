@@ -47,19 +47,20 @@ Grab all destinations
     ]
 }
 """
+"""
+data = [
+  {name: 'Workout', data: {'2017-01-01 00:00:00 -0800': 3, '2017-01-02 00:00:00 -0800': 4}},
+  {name: 'Call parents', data: {'2017-01-01 00:00:00 -0800': 5, '2017-01-02 00:00:00 -0800': 3}}
+];
+"""
 
 
 @app.route("/graph")
 def graph():
-    all_airport_codes = Flight.query(Flight.airport_code).distinct()
-    flights = []
+    all_destinations = Destination.query.all()
+    destinations_data = [d.flights_to_chart_data() for d in all_destinations]
 
-    Flight.query.filter(Flight.created.between(
-        last_in.created - timedelta(seconds=30),
-        last_in.created
-    )).order_by(Flight.cost).all()
-
-    return to_json(flights)
+    return json.dumps(destinations_data)
 
 
 @app.route("/destinations/<string:code>")
